@@ -6,17 +6,17 @@ output:
     theme: "Frankfurt"
     toc: true
     slide_level: 2
-    number_sections: true
+    number_sections: false
   html_document:
     toc: true
-    number_sections: true
+    number_sections: false
 ---
 
 ```{r setup, include=FALSE, fig.show="hide"}
 knitr::opts_chunk$set(echo = TRUE, warning = F,dev = 'pdf', comment="", cache=FALSE, results = 'markup', fig.width = 10, fig.height = 6, tidy.opts=list(width.cutoff=80), tidy=TRUE)
 ```
 
-```{r bibliothèques, echo=F, warning=F}
+```{r bibliothèques, echo=F, warning=F, include=F}
 library(Matrix)
 library(ggplot2)
 library(MultiVarSel)
