@@ -1,0 +1,23 @@
+---
+title: "Oral UC2 Big Data"
+author: Joseph ALLYNDREE, Thomas CLERC, Louis LACOSTE, Tom LORTHIOS
+output:
+  beamer_presentation:
+    theme: "Berkeley"
+    slide_level: 3
+    number_sections: true
+  html_document:
+    toc: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE, fig.show="hide"}
+knitr::opts_chunk$set(echo = TRUE, warning = F,dev = 'pdf', comment="", cache=FALSE, results = 'markup', fig.width = 10, fig.height = 6, tidy.opts=list(width.cutoff=80), tidy=TRUE)
+rm(list = ls())
+seuil_metabolites = 0.7
+```
+
+# Sélection des métabolites par la méthode Lasso
+Seuil défini à `r seuil_metabolites`
+```{r, child="metabolome.Rmd"}
+```

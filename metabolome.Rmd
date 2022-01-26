@@ -1,0 +1,180 @@
+```{r, echo=F}
+library(glmnet)
+library(Matrix)
+library(ggplot2)
+library(MultiVarSel)
+library(reshape2)
+```
+
+```{r, echo=F}
+
+# On vérifie s'il existe une variable seuil
+if (!exists("seuil_metabolites")){
+  seuil_metabolites = 0.93 # Si pas de seuil on défini à 0.93
+}
+
+
+# Importation des données de métabolisme
+metabo <- read.table("metabolomeAth.csv", header = T, sep = ";", dec = ",")
+
+# Renommage de la première colonne
+metabo = metabo[,-1]
+temperature = rep(c("FROID", "STD", "CHAUD"), each = 3)
+metabo = data.frame(temperature, metabo)
+```
+
+## Infos sur les données de métabolisme
+```{r, echo=F}
+print("Nombre de colonne dont la moyenne est nulle :")
+which(colMeans(metabo[,2:dim(metabo)[2]])==0)
+
+print("Nombre de colonne où la variable est constante :")
+which(apply(metabo[,2:dim(metabo)[2]],2,sd)==0)
+
+print("Nombre de NAs dans le dataframe :")
+which(is.na(metabo))
+```
+## Infos sur les données de métabolisme
+
+- Nombre de colonne dont la moyenne est nulle : 0
+- Nombre de colonne où la variable est constante : 0
+- Nombre de NAs dans le dataframe : 0
+
+
+## Matrices Y et X
+
+```{r, echo=F}
+Y <- as.matrix(metabo[, -1])
+X <- model.matrix(lm(Y ~ temperature + 0,data=metabo))
+p <- ncol(X)
+print("Lignes de X")
+n=nrow(X)
+print(n)
+
+print("Colonnes de Y")
+q=dim(Y)[2]
+print(q)
+```
+
+## Test de Blancheur
+```{r, echo=F}
+
+## Scaling the Y matrix (to force the empirical mean of each column
+## to be 0 and the variance of each column to be 1)
+Y=scale(Y)
+
+## Definition of the residuals
+residus=lm(as.matrix(Y)~X-1)$residuals
+## Whitening test without using any whitening method
+pvalue=whitening_test(residus)
+```
+P-valeur du test de blancheur : `r pvalue`
+
+## Structure du bruit des résidus
+```{r, echo=F}
+## Testing the two dependence structures (parametric : AR1 and Nonparametric) : Toeplitz case
+whitening_choice(residus, typeDeps = c("AR1","nonparam", "ARMA"), pAR = 2, qMA = 1)
+```
+
+On voit donc que lorsque l'on applique la structure non paramétrique la valeur p de $0.741$ nous indique que parmi les fonctions testées c'est la structure non paramétrique qui permet de blanchir la matrice.
+
+```{r, echo=F}
+## => We will use the nonparametric modeling.
+square_root_inv_hat_Sigma=whitening(residus,"nonparam",pAR=1,qMA=0)
+```
+
+## Sélection de variables
+
+```{r, echo=F}
+# 
+# Freqs_TOEPLITZ = variable_selection(
+#   Y,
+#   X,
+#   square_root_inv_hat_Sigma,
+#   nb_repli = 5000,
+#   parallel = F,
+#   nb.cores = 1
+# )
+# save(Freqs_TOEPLITZ, file = 'Freqs_metabolome_Ath_TOEPLITZ_nbreplis_5000.Rdata')
+
+load('Freqs_metabolome_Ath_TOEPLITZ_nbreplis_5000.Rdata')
+colnames(Freqs_TOEPLITZ) <- c('Names_of_Y', 'Names_of_X', 'frequency')
+base::plot(sort(Freqs_TOEPLITZ$frequency, decreasing = T), type = 's')
+```
+
+### Les 50 métabolites les plus fréquents
+`r sort(Freqs_TOEPLITZ$frequency, decreasing = T)[1:50]`
+
+### Réponses des métabolites dépassant le seuil `r seuil_metabolites` 
+```{r, echo=F}
+Freqs_TOEPLITZ$Names_of_X = gsub(pattern = 'temperature',
+                                 replacement = '',
+                                 Freqs_TOEPLITZ$Names_of_X)
+
+indices = which(Freqs_TOEPLITZ$frequency >= seuil_metabolites)
+
+Yvec = as.numeric(Y %*% square_root_inv_hat_Sigma)
+Xvec = kronecker(t(square_root_inv_hat_Sigma), X)
+Xvec_sel = Xvec[, indices]
+B_sel_hat = solve(t(Xvec_sel) %*% Xvec_sel, t(Xvec_sel) %*% Yvec)
+Freqs_TOEPLITZ$estim = rep(0, p * q)
+Freqs_TOEPLITZ$estim[indices] = as.vector(B_sel_hat)
+
+gr <-
+  ggplot(data = Freqs_TOEPLITZ[Freqs_TOEPLITZ$frequency >= seuil_metabolites,],
+         aes(x = Names_of_Y, y = Names_of_X, color = estim)) +
+  scale_color_gradient2(low = "steelblue", mid = "white", high = "red") +
+  geom_point(size = 2) + theme_bw() +
+  ylab('Température') +
+  xlab('Métabolites') + ggtitle(paste("Réponse des Métabolites sélectionnés pour les conditions\nde températures, au seuil", seuil_metabolites, sep = " ")) + theme(axis.text.x = element_text(angle = 90))
+
+gr
+
+```
+
+### Boxplots des réponses des métabolites dépassant le seuil `r seuil_metabolites` 
+```{r,fig.width=10,fig.height=7, echo=F}
+#### Boxplots
+table_red=as.data.frame(Y[,colnames(Y)%in%unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)])
+table_red$temperature=metabo[,1]
+
+bp <- ggplot(melt(table_red), aes(x=temperature, y=value,fill=temperature)) + 
+  geom_boxplot()+theme_bw()+theme(axis.text.y =element_text(size=20),axis.text.x =element_text(size=15),axis.title =element_text(size=20),legend.title=element_text(size=20), 
+    legend.text=element_text(size=19))
+bp+facet_wrap(~variable,ncol=3)+ylab("Réponse")+theme(strip.text = element_text(face="bold", size=20))
+```
+
+```{r,fig.width=10,fig.height=10,echo=FALSE, echo=F}
+liste_metabolites_selected=unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)
+# length(liste_metabolites_selected)
+# 
+# residus_red=residus[,colnames(residus)%in%liste_metabolites_selected]
+# 
+# hc=hclust(dist(t(residus_red)),'ward')
+# 
+# hc=hclust(dist(1 - abs(cor(residus_red))))
+# base::plot(hc)
+# rect.hclust(hc,k=5)
+
+```
+
+## Exportation des Métabolites sélectionnés par GLM Lasso
+```{r ,echo=F}
+table_selection <- liste_metabolites_selected
+
+# export
+derniere_selection_lasso = sprintf("metabolites_selection_lasso_%s.csv", seuil_metabolites)
+
+write.table(
+  table_selection,
+  file = derniere_selection_lasso,
+  append = F,
+  sep = ";",
+  dec = ".",
+  row.names = T,
+  col.names = NA,
+  fileEncoding = "UTF-8"
+)
+```
+Fichier **`r derniere_selection_lasso`** exporté.
+
