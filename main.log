@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.12.15)  26 JAN 2022 09:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.12.15)  26 JAN 2022 16:45
 entering extended mode
 **./main.tex
 (main.tex
@@ -717,14 +717,12 @@ Package: inputenc 2020/08/01 v1.3d Input encoding file
 \inpenc@posthook=\toks45
 ) ("C:\Program Files\MiKTeX\tex/latex/base\textcomp.sty"
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) ("C:\Program Files\MiKTeX\tex/latex/beamer\beamerthemeBerkeley.sty" ("C:\Prog
-ram Files\MiKTeX\tex/latex/beamer\beamerouterthemesidebar.sty"
-\beamer@sidebarwidth=\dimen288
-\beamer@headheight=\dimen289
-) ("C:\Program Files\MiKTeX\tex/latex/beamer\beamerinnerthemerectangles.sty") (
-"C:\Program Files\MiKTeX\tex/latex/beamer\beamercolorthemewhale.sty") ("C:\Prog
-ram Files\MiKTeX\tex/latex/beamer\beamercolorthemeorchid.sty")) ("C:\Program Fi
-les\MiKTeX\tex/latex/upquote\upquote.sty"
+) ("C:\Program Files\MiKTeX\tex/latex/beamer\beamerthemeFrankfurt.sty" ("C:\Pro
+gram Files\MiKTeX\tex/latex/beamer\beamerouterthemesmoothbars.sty") ("C:\Progra
+m Files\MiKTeX\tex/latex/beamer\beamerinnerthemerounded.sty") ("C:\Program File
+s\MiKTeX\tex/latex/beamer\beamercolorthemeorchid.sty") ("C:\Program Files\MiKTe
+X\tex/latex/beamer\beamercolorthemewhale.sty")) ("C:\Program Files\MiKTeX\tex/l
+atex/upquote\upquote.sty"
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 ) ("C:\Program Files\MiKTeX\tex/latex/microtype\microtype.sty"
@@ -732,10 +730,10 @@ Package: microtype 2021/10/31 v3.0 Micro-typographical refinements (RS)
 \MT@toks=\toks46
 \MT@count=\count328
 \MT@tempbox=\box73
-\MT@leftmarginkern=\dimen290
-\MT@rightmarginkern=\dimen291
+\MT@leftmarginkern=\dimen288
+\MT@rightmarginkern=\dimen289
 LaTeX Info: Redefining \textls on input line 1114.
-\MT@outer@kern=\dimen292
+\MT@outer@kern=\dimen290
 LaTeX Info: Redefining \textmicrotypecontext on input line 1700.
 \MT@listname@count=\count329
 ("C:\Program Files\MiKTeX\tex/latex/microtype\microtype-pdftex.def"
@@ -756,31 +754,100 @@ Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
 ("C:\Program Files\MiKTeX\tex/latex/bookmark\bkm-pdftex.def"
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count330
+)) ("C:\Program Files\MiKTeX\tex/latex/tools\longtable.sty"
+Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+\LTleft=\skip68
+\LTright=\skip69
+\LTpre=\skip70
+\LTpost=\skip71
+\LTchunksize=\count331
+\LTcapwidth=\dimen291
+\LT@head=\box74
+\LT@firsthead=\box75
+\LT@foot=\box76
+\LT@lastfoot=\box77
+\LT@cols=\count332
+\LT@rows=\count333
+\c@LT@tables=\count334
+\c@LT@chunks=\count335
+\LT@p@ftn=\toks47
+) ("C:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty"
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen292
+\lightrulewidth=\dimen293
+\cmidrulewidth=\dimen294
+\belowrulesep=\dimen295
+\belowbottomsep=\dimen296
+\aboverulesep=\dimen297
+\abovetopsep=\dimen298
+\cmidrulesep=\dimen299
+\cmidrulekern=\dimen300
+\defaultaddspace=\dimen301
+\@cmidla=\count336
+\@cmidlb=\count337
+\@aboverulesep=\dimen302
+\@belowrulesep=\dimen303
+\@thisruleclass=\count338
+\@lastruleclass=\count339
+\@thisrulewidth=\dimen304
+) ("C:\Program Files\MiKTeX\tex/latex/tools\array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+\col@sep=\dimen305
+\ar@mcellbox=\box78
+\extrarowheight=\dimen306
+\NC@list=\toks48
+\extratabsurround=\skip72
+\backup@length=\skip73
+\ar@cellbox=\box79
+) ("C:\Program Files\MiKTeX\tex/latex/caption\caption.sty"
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+("C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty"
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen307
+\captionmargin@=\dimen308
+\captionwidth=\dimen309
+\caption@tempdima=\dimen310
+\caption@indent=\dimen311
+\caption@parindent=\dimen312
+\caption@hangindent=\dimen313
+Package caption Info: beamer document class detected.
+("C:\Program Files\MiKTeX\tex/latex/caption\caption-beamer.sto"
+File: caption-beamer.sto 2020/08/22 v2.0 Adaption of the caption package to the
+ beamer document classes (AR)
+))
+\c@caption@flags=\count340
+\c@continuedfloat=\count341
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+Package caption Info: longtable package is loaded.
+("C:\Program Files\MiKTeX\tex/latex/caption\ltcaption.sty"
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
 )) ("C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def"
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count331
-\l__pdf_internal_box=\box74
+\l__kernel_color_stack_int=\count342
+\l__pdf_internal_box=\box80
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -789,14 +856,14 @@ LaTeX Font Info:    ... okay on input line 110.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(59.22636pt, 290.74263pt, 14.22636pt)
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
 * v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
 * \paperwidth=364.19536pt
 * \paperheight=273.14662pt
-* \textwidth=290.74263pt
+* \textwidth=307.28987pt
 * \textheight=244.6939pt
-* \oddsidemargin=-13.04362pt
-* \evensidemargin=-13.04362pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
@@ -817,23 +884,23 @@ LaTeX Font Info:    ... okay on input line 110.
 
 ("C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count332
-\scratchdimen=\dimen293
-\scratchbox=\box75
-\nofMPsegments=\count333
-\nofMParguments=\count334
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count335
-\MPscratchDim=\dimen294
-\MPnumerator=\count336
-\makeMPintoPDFobject=\count337
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count343
+\scratchdimen=\dimen314
+\scratchbox=\box81
+\nofMPsegments=\count344
+\nofMParguments=\count345
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count346
+\MPscratchDim=\dimen315
+\MPnumerator=\count347
+\makeMPintoPDFobject=\count348
+\everyMPtoPDFconversion=\toks50
 ) ("C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-Package hyperref Info: Link coloring OFF on input line 110.
+Package hyperref Info: Link coloring OFF on input line 117.
 ("C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty"
@@ -841,57 +908,57 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) ("C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count338
+\c@section@level=\count349
 )
-LaTeX Info: Redefining \ref on input line 110.
-LaTeX Info: Redefining \pageref on input line 110.
-LaTeX Info: Redefining \nameref on input line 110.
+LaTeX Info: Redefining \ref on input line 117.
+LaTeX Info: Redefining \pageref on input line 117.
+LaTeX Info: Redefining \nameref on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 110.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 110.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 110.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 110.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 117.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 110.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 110.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 117.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 110.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 110.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 110.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 117.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 110.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 110.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 110.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 117.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 110.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 110.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 110.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 117.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 110.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 110.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 117.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 110.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 117.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 110.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 110.
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 110.
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 110.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 110.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 110.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 117.
 
 ("C:\Program Files\MiKTeX\tex/latex/translator\translator-basic-dictionary-Engl
 ish.dict"
@@ -917,12 +984,12 @@ Dictionary: translator-numbers-dictionary, Language: English
 glish.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \microtypecontext on input line 110.
-Package microtype Info: Applying patch `item' on input line 110.
-Package microtype Info: Applying patch `toc' on input line 110.
-Package microtype Info: Applying patch `eqnum' on input line 110.
+LaTeX Info: Redefining \microtypecontext on input line 117.
+Package microtype Info: Applying patch `item' on input line 117.
+Package microtype Info: Applying patch `toc' on input line 117.
+Package microtype Info: Applying patch `eqnum' on input line 117.
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 110.
+Package microtype Warning: Unable to apply patch `footnote' on input line 117.
 
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -930,7 +997,7 @@ Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 110.
+LaTeX Info: Redefining \showhyphens on input line 117.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -938,60 +1005,108 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-(main.nav) [1{C:/Users/lordo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+(main.nav)
+Overfull \hbox (32.58046pt too wide) detected at line 117
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
 
-] [2
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[1{C:/Users/lordo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+
+] (main.toc)
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[2
 
 ]
 \openout4 = `main.vrb'.
 
 (main.vrb
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 .
 ("C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [3
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+27.
+("C:\Program Files\MiKTeX\tex/latex/lm\ts1lmtt.fd"
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
 
-] [4
+[3
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[4
 
 ]
 \openout4 = `main.vrb'.
 
 (main.vrb
-Overfull \hbox (2.44278pt too wide) in paragraph at lines 4--4
-[]\T1/lmtt/m/n/10.95 [1] "Nombre de colonne dont la moyenne est nulle :"[] 
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 4.
+)
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
  []
 
+[5
 
-Overfull \hbox (19.68898pt too wide) in paragraph at lines 12--12
-[]\T1/lmtt/m/n/10.95 [1] "Nombre de colonne où la variable est constante :"[] 
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
  []
 
-) [5
-
-] [6
-
-] [7
-
-] [8
+[6
 
 ]
-\openout4 = `main.vrb'.
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
 
-(main.vrb) [9
-
-] [10
-
-] [11
-
-] [12
+[7
 
 ]
-\openout4 = `main.vrb'.
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
 
-(main.vrb
+[8
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[9
+
+]
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-10.
+216.
 ("C:\Program Files\MiKTeX\tex/latex/lm\ot1lmss.fd"
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -999,90 +1114,596 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-0.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+16.
 ("C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-10.
+216.
 ("C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-10.
+216.
 ("C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 10.
+(Font)              <10.95> on input line 216.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 10.
+(Font)              <8> on input line 216.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 10.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
-
+(Font)              <6> on input line 216.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 216
+.
 ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) ("C:\Program Files\MiKTeX\tex/latex/microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 216
+.
 ("C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) ("C:\Program Files\MiKTeX\tex/latex/microtype\mt-msb.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 216.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 10.
-) [13
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 216.
 
-] [14
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[10
 
 ]
-<main_files/figure-beamer/unnamed-chunk-9-1.pdf, id=233, 722.7pt x 433.62pt>
+\openout4 = `main.vrb'.
+
+(main.vrb
+
+LaTeX Warning: Command \' invalid in math mode on input line 12.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 12.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 16.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 16.
+
+)
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[11
+
+]
+<main_files/figure-beamer/unnamed-chunk-9-1.pdf, id=858, 722.7pt x 433.62pt>
 File: main_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use main_files/figure-beamer/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-9-1.pdf  used o
-n input line 225.
-(pdftex.def)             Requested size: 290.74002pt x 174.44402pt.
-[15
+n input line 244.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
 
- <./main_files/figure-beamer/unnamed-chunk-9-1.pdf>] [16
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[12
+
+ <./main_files/figure-beamer/unnamed-chunk-9-1.pdf>]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[13
 
 ]
-<main_files/figure-beamer/unnamed-chunk-10-1.pdf, id=268, 722.7pt x 433.62pt>
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[14
+
+]
+<main_files/figure-beamer/unnamed-chunk-10-1.pdf, id=1068, 722.7pt x 433.62pt>
 File: main_files/figure-beamer/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use main_files/figure-beamer/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-10-1.pdf  used 
-on input line 240.
-(pdftex.def)             Requested size: 290.74002pt x 174.44402pt.
-[17
+on input line 280.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[15
 
  <./main_files/figure-beamer/unnamed-chunk-10-1.pdf>]
 \openout4 = `main.vrb'.
 
 (main.vrb
-<main_files/figure-beamer/unnamed-chunk-11-1.pdf, id=290, 722.7pt x 505.89pt>
+<main_files/figure-beamer/unnamed-chunk-11-1.pdf, id=1134, 722.7pt x 505.89pt>
 File: main_files/figure-beamer/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use main_files/figure-beamer/unnamed-chunk-11-1.pdf>
 Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-11-1.pdf  used 
 on input line 7.
-(pdftex.def)             Requested size: 290.74002pt x 203.518pt.
+(pdftex.def)             Requested size: 307.2923pt x 215.1046pt.
 )
-Overfull \vbox (5.94223pt too high) detected at line 250
+Overfull \vbox (30.24564pt too high) detected at line 290
+ []
+
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[16
+
+ <./main_files/figure-beamer/unnamed-chunk-11-1.pdf>]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[17
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
  []
 
 [18
 
- <./main_files/figure-beamer/unnamed-chunk-11-1.pdf>] [19
+]
+<main_files/figure-beamer/unnamed-chunk-14-1.pdf, id=1331, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-1.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-1.pdf  used 
+on input line 328.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
 
-] [20
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[19
+
+ <./main_files/figure-beamer/unnamed-chunk-14-1.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-2.pdf, id=1410, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-2.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-2.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-2.pdf  used 
+on input line 336.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[20
+
+ <./main_files/figure-beamer/unnamed-chunk-14-2.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-3.pdf, id=1485, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-3.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-3.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-3.pdf  used 
+on input line 344.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[21
+
+ <./main_files/figure-beamer/unnamed-chunk-14-3.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-4.pdf, id=1560, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-4.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-4.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-4.pdf  used 
+on input line 352.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[22
+
+ <./main_files/figure-beamer/unnamed-chunk-14-4.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-5.pdf, id=1638, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-5.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-5.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-5.pdf  used 
+on input line 360.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[23
+
+ <./main_files/figure-beamer/unnamed-chunk-14-5.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-6.pdf, id=1713, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-6.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-6.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-6.pdf  used 
+on input line 368.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[24
+
+ <./main_files/figure-beamer/unnamed-chunk-14-6.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-7.pdf, id=1788, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-7.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-7.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-7.pdf  used 
+on input line 376.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[25
+
+ <./main_files/figure-beamer/unnamed-chunk-14-7.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-8.pdf, id=1864, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-8.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-8.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-8.pdf  used 
+on input line 384.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[26
+
+ <./main_files/figure-beamer/unnamed-chunk-14-8.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-9.pdf, id=1939, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-14-9.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-9.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-9.pdf  used 
+on input line 392.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[27
+
+ <./main_files/figure-beamer/unnamed-chunk-14-9.pdf>]
+<main_files/figure-beamer/unnamed-chunk-14-10.pdf, id=2014, 722.7pt x 433.62pt>
+
+File: main_files/figure-beamer/unnamed-chunk-14-10.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-14-10.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-14-10.pdf  used
+ on input line 400.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[28
+
+ <./main_files/figure-beamer/unnamed-chunk-14-10.pdf>]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[29
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[30
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[31
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[32
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[33
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[34
+
+]
+\openout4 = `main.vrb'.
+
+(main.vrb
+
+LaTeX Warning: Command \' invalid in math mode on input line 12.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 12.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 16.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 16.
+
+)
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[35
+
+]
+<main_files/figure-beamer/unnamed-chunk-22-1.pdf, id=2539, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-22-1.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-22-1.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-22-1.pdf  used 
+on input line 482.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[36
+
+ <./main_files/figure-beamer/unnamed-chunk-22-1.pdf>]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[37
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[38
+
+]
+<main_files/figure-beamer/unnamed-chunk-23-1.pdf, id=2746, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-23-1.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-23-1.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-23-1.pdf  used 
+on input line 517.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[39
+
+ <./main_files/figure-beamer/unnamed-chunk-23-1.pdf>]
+\openout4 = `main.vrb'.
+
+(main.vrb
+<main_files/figure-beamer/unnamed-chunk-24-1.pdf, id=2812, 722.7pt x 505.89pt>
+File: main_files/figure-beamer/unnamed-chunk-24-1.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-24-1.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-24-1.pdf  used 
+on input line 7.
+(pdftex.def)             Requested size: 307.2923pt x 215.1046pt.
+)
+Overfull \vbox (12.24564pt too high) detected at line 527
+ []
+
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[40
+
+ <./main_files/figure-beamer/unnamed-chunk-24-1.pdf>]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[41
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[42
+
+]
+<main_files/figure-beamer/unnamed-chunk-27-1.pdf, id=3009, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-1.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-1.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-1.pdf  used 
+on input line 562.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[43
+
+ <./main_files/figure-beamer/unnamed-chunk-27-1.pdf>]
+<main_files/figure-beamer/unnamed-chunk-27-2.pdf, id=3085, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-2.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-2.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-2.pdf  used 
+on input line 570.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[44
+
+ <./main_files/figure-beamer/unnamed-chunk-27-2.pdf>]
+<main_files/figure-beamer/unnamed-chunk-27-3.pdf, id=3160, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-3.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-3.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-3.pdf  used 
+on input line 578.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[45
+
+ <./main_files/figure-beamer/unnamed-chunk-27-3.pdf>]
+<main_files/figure-beamer/unnamed-chunk-27-4.pdf, id=3235, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-4.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-4.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-4.pdf  used 
+on input line 586.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[46
+
+ <./main_files/figure-beamer/unnamed-chunk-27-4.pdf>]
+<main_files/figure-beamer/unnamed-chunk-27-5.pdf, id=3310, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-5.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-5.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-5.pdf  used 
+on input line 594.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[47
+
+ <./main_files/figure-beamer/unnamed-chunk-27-5.pdf>]
+<main_files/figure-beamer/unnamed-chunk-27-6.pdf, id=3385, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-6.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-6.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-6.pdf  used 
+on input line 602.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[48
+
+ <./main_files/figure-beamer/unnamed-chunk-27-6.pdf>]
+<main_files/figure-beamer/unnamed-chunk-27-7.pdf, id=3460, 722.7pt x 433.62pt>
+File: main_files/figure-beamer/unnamed-chunk-27-7.pdf Graphic file (type pdf)
+<use main_files/figure-beamer/unnamed-chunk-27-7.pdf>
+Package pdftex.def Info: main_files/figure-beamer/unnamed-chunk-27-7.pdf  used 
+on input line 610.
+(pdftex.def)             Requested size: 307.2923pt x 184.37538pt.
+
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[49
+
+ <./main_files/figure-beamer/unnamed-chunk-27-7.pdf>]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[50
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[51
+
+]
+Overfull \hbox (32.58046pt too wide) has occurred while \output is active
+  [] [][][] [][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][]
+[][][][][][][][][][][][][][] [][] [][]  
+ []
+
+[52
 
 ]
 \tf@nav=\write5
@@ -1096,22 +1717,28 @@ Overfull \vbox (5.94223pt too high) detected at line 250
 
 (main.aux) ) 
 Here is how much of TeX's memory you used:
- 23618 strings out of 479799
- 431014 string characters out of 2879598
- 730654 words of memory out of 3000000
- 39963 multiletter control sequences out of 15000+200000
- 578638 words of font info for 87 fonts, out of 3000000 for 9000
+ 25667 strings out of 479799
+ 474914 string characters out of 2879598
+ 820147 words of memory out of 3000000
+ 41834 multiletter control sequences out of 15000+200000
+ 576230 words of font info for 88 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,16n,126p,1003b,553s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 125i,20n,126p,1003b,775s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program F
-iles/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Program Files/MiKTeX/fonts/typ
-e1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss10.p
-fb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/lm/lmss8.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
-lic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (20 pages, 255850 bytes).
+iles/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvi
+ps/lm/lm-mathit.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{
+C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Program Files/MiKTeX/
+fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/
+lmss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/public/lm/lmss8.pfb><C:/Program Files/MiKTeX/fonts/t
+ype1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss
+o10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso8.pfb><C:/Program F
+iles/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/public/lm/lmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pf
+b>
+Output written on main.pdf (52 pages, 1030682 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 52 named destinations out of 1000 (max. 500000)
- 26746 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 3831 PDF objects out of 4296 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
+ 25896 words of extra memory for PDF output out of 29859 (max. 10000000)
 

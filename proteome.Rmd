@@ -1,46 +1,61 @@
-```{r}
+```{r, echo=F, warning=F}
+library(Matrix)
+library(ggplot2)
 library(MultiVarSel)
 library(reshape2)
+library(glmnet)
+library(multcomp)
 ```
 
 ```{r, echo=F}
 
-# Importation des données de métabolisme
+# On vérifie s'il existe une variable seuil
+if (!exists("seuil_proteines")){
+  seuil_proteines = 0.95 # Si pas de seuil on défini à 0.93
+}
+
+
+# Importation des données de protéines
 proteo <- read.table("proteomeAth.csv", header = T, sep = ";", dec = ",")
 
 # Renommage de la première colonne
-proteo = proteo[,-1]
-temperature = rep(c("FROID", "STD", "CHAUD"), each = 3)
+# proteo = proteo[,-1]
+proteo[1:3,1] <- "FROID"
+proteo[4:6,1] <- "STD"
+proteo[7:9,1] <- "CHAUD"
+
+temperature = factor(proteo$name, levels=c("FROID","STD","CHAUD"), ordered = T)
+proteo <- proteo[,-1]
 proteo = data.frame(temperature, proteo)
+
 ```
 
-# Info sur les données de métabolisme
-```{r, echo=F}
-print("Nombre de colonne dont la moyenne est nulle :")
-which(colMeans(proteo[,2:dim(proteo)[2]])==0)
+## Infos sur les données de métabolisme
 
-print("Nombre de colonne dont l'écart type est nul, c'est à dire que la variable est constante :")
-which(apply(proteo[,2:dim(proteo)[2]],2,sd)==0)
+- Nombre de colonne dont la moyenne est nulle : `r length((which(colMeans(proteo[,2:dim(proteo)[2]])==0)))`
+- Nombre de colonne où la variable est constante : `r length(which(apply(proteo[,2:dim(proteo)[2]],2,sd)==0))`
+- Nombre de NAs dans le dataframe : `r length(which(is.na(proteo)))`
 
-print("Nombre de NAs dans le dataframe :")
-which(is.na(proteo))
-```
 
-# Récupération et opérations sur les matrices Y et X
+
+## Matrices Y et X
 
 ```{r, echo=F}
 Y <- as.matrix(proteo[, -1])
 X <- model.matrix(lm(Y ~ temperature + 0,data=proteo))
 p <- ncol(X)
-print("Lignes de X")
+
 n=nrow(X)
-print(n)
-
-print("Colonnes de Y")
 q=dim(Y)[2]
-print(q)
-```
 
+```
+Lignes | Valeur | Colonnes | Valeur
+--- | --- | --- | --- 
+ X | `r n` | X| `r p`
+ Y | `r n` | Y| `r q`
+
+
+## Test de Blancheur
 ```{r, echo=F}
 
 ## Scaling the Y matrix (to force the empirical mean of each column
@@ -51,15 +66,35 @@ Y=scale(Y)
 residus=lm(as.matrix(Y)~X-1)$residuals
 ## Whitening test without using any whitening method
 pvalue=whitening_test(residus)
-print(c("p-valeur du test de blancheur : ", pvalue))
 ```
 
-## Trouver la structure du bruit des résidus
+### Test réalisé :
+
+$H_0 : \{E \text{ suit un bruit blanc et donc } \Sigma = Id  \}$ 
+
+contre 
+
+$H_1 : \{E \text{ ne suit pas un bruit blanc et } \Sigma \neq Id  \}$
+
+P-valeur du test de blancheur : `r pvalue`. Donc on rejette $H_0$ et $E$ ne suit pas un bruit blanc, les colonnes ne sont pas indépendantes et $\Sigma \neq Id$. 
+
+## Structure du bruit des résidus
 ```{r, echo=F}
 ## Testing the two dependence structures (parametric : AR1 and Nonparametric) : Toeplitz case
-whitening_choice(residus, typeDeps = c("AR1","nonparam", "ARMA"), pAR = 2, qMA = 1)
+choix_blanchiement = whitening_choice(residus, typeDeps = c("AR1","nonparam", "ARMA"), pAR = 2, qMA = 1)
+choix_blanchiement
 ```
-On voit donc que lorsque l'on applique la structure non paramétrique la valeur p de $0.741$ nous indique que parmi les fonctions testées c'est la structure non paramétrique qui permet de blanchir la matrice.
+
+### Test réalisé pour chaque méthode :
+
+$H_0 : \{E\Sigma^{-1/2}_{méthode} \text{ suit un bruit blanc et donc } \Sigma_{corrigé} = Id  \}$
+
+contre 
+
+$H_1 : \{E\Sigma^{-1/2}_{méthode} \text{ ne suit pas un bruit blanc et } \Sigma_{corrigé} \neq Id  \}$
+
+On voit donc que lorsque l'on applique la structure non paramétrique la P-valeur de `r choix_blanchiement$Pvalue[2]` nous indique que parmi les fonctions testées c'est la structure non paramétrique qui permet de blanchir la matrice.
+
 
 ```{r, echo=F}
 ## => We will use the nonparametric modeling.
@@ -68,7 +103,8 @@ square_root_inv_hat_Sigma=whitening(residus,"nonparam",pAR=1,qMA=0)
 
 ## Sélection de variables
 
-```{r, echo=F, fig.show="hide"}
+```{r, echo=F}
+# 
 # Freqs_TOEPLITZ = variable_selection(
 #   Y,
 #   X,
@@ -78,47 +114,52 @@ square_root_inv_hat_Sigma=whitening(residus,"nonparam",pAR=1,qMA=0)
 #   nb.cores = 1
 # )
 # save(Freqs_TOEPLITZ, file = 'Freqs_proteome_Ath_TOEPLITZ_nbreplis_5000.Rdata')
-# 
+
 load('Freqs_proteome_Ath_TOEPLITZ_nbreplis_5000.Rdata')
-
 colnames(Freqs_TOEPLITZ) <- c('Names_of_Y', 'Names_of_X', 'frequency')
-base::plot(sort(Freqs_TOEPLITZ$frequency,decreasing = T), type = 's')
-
-sort(Freqs_TOEPLITZ$frequency,decreasing = T)[1:50]
-
+base::plot(sort(Freqs_TOEPLITZ$frequency, decreasing = T), type = 's')
 ```
 
+## Les 50 Protéines les plus fréquents
+### Liste des fréquences
+`r sort(Freqs_TOEPLITZ$frequency, decreasing = T)[1:50]`
 
-```{r}
-seuil=0.95
+## Les 50 métabolites les plus fréquents
+### Liste des noms de protéines
+`r Freqs_TOEPLITZ$Names_of_Y[which(Freqs_TOEPLITZ$frequency %in% sort(Freqs_TOEPLITZ$frequency, decreasing = T)[1:50])]`
 
-Freqs_TOEPLITZ$Names_of_X=gsub(pattern='temperature',replacement='',Freqs_TOEPLITZ$Names_of_X)
+## Réponses des Protéines dépassant le seuil `r seuil_proteines` 
+```{r, echo=F}
+Freqs_TOEPLITZ$Names_of_X = gsub(pattern = 'temperature',
+                                 replacement = '',
+                                 Freqs_TOEPLITZ$Names_of_X)
 
-indices=which(Freqs_TOEPLITZ$frequency>=seuil)
+indices = which(Freqs_TOEPLITZ$frequency >= seuil_proteines)
 
-Yvec=as.numeric(Y%*%square_root_inv_hat_Sigma)
-Xvec=kronecker(t(square_root_inv_hat_Sigma),X)
-Xvec_sel=Xvec[,indices]
-B_sel_hat=solve(t(Xvec_sel)%*%Xvec_sel,t(Xvec_sel)%*%Yvec)
-Freqs_TOEPLITZ$estim=rep(0,p*q)
-Freqs_TOEPLITZ$estim[indices]=as.vector(B_sel_hat)
+Yvec = as.numeric(Y %*% square_root_inv_hat_Sigma)
+Xvec = kronecker(t(square_root_inv_hat_Sigma), X)
+Xvec_sel = Xvec[, indices]
+B_sel_hat = solve(t(Xvec_sel) %*% Xvec_sel, t(Xvec_sel) %*% Yvec)
+Freqs_TOEPLITZ$estim = rep(0, p * q)
+Freqs_TOEPLITZ$estim[indices] = as.vector(B_sel_hat)
 
-library(ggplot2)
-gr<-ggplot(data=Freqs_TOEPLITZ[Freqs_TOEPLITZ$frequency>=seuil,],
-           aes(x=Names_of_Y,y=Names_of_X,color=estim))+
-  scale_color_gradient2(low="steelblue",mid = "white", high ="red")+
-  geom_point(size=2)+theme_bw()+
-  ylab('Température')+
-  xlab('Métabolites')+theme(axis.text.x = element_text(angle=90))
+gr <-
+  ggplot(data = Freqs_TOEPLITZ[Freqs_TOEPLITZ$frequency >= seuil_proteines,],
+         aes(x = Names_of_Y, y = Names_of_X, color = estim)) +
+  scale_color_gradient2(low = "steelblue", mid = "white", high = "red") +
+  geom_point(size = 2) + theme_bw() +
+  ylab('Température') +
+  xlab('Protéines') + ggtitle(paste("Réponse des Protéines sélectionnés pour les conditions\nde températures, au seuil", seuil_proteines, sep = " ")) + theme(axis.text.x = element_text(angle = 90))
+
 gr
 
 ```
 
 
-```{r,fig.width=18,fig.height=20}
 
+## Boxplots des réponses des Protéines dépassant le seuil `r seuil_proteines` 
+```{r,fig.width=10,fig.height=7, echo=F}
 #### Boxplots
-
 table_red=as.data.frame(Y[,colnames(Y)%in%unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)])
 table_red$temperature=proteo[,1]
 
@@ -126,24 +167,11 @@ bp <- ggplot(melt(table_red), aes(x=temperature, y=value,fill=temperature)) +
   geom_boxplot()+theme_bw()+theme(axis.text.y =element_text(size=20),axis.text.x =element_text(size=15),axis.title =element_text(size=20),legend.title=element_text(size=20), 
     legend.text=element_text(size=19))
 bp+facet_wrap(~variable,ncol=3)+ylab("Réponse")+theme(strip.text = element_text(face="bold", size=20))
-
-
-#### Sans la fonction melt
-# matrice=table_red[,1:length(unique(Freqs_TOEPLITZ[indices,]$Names_of_Y))]
-# table_boxplot=data.frame(Reponse=c(t(unlist(t(matrice)))),
-#    temperature=rep(table_red$temperature,length(unique(Freqs_TOEPLITZ[indices,]$Names_of_Y))),
-#    nom=rep(unique(Freqs_TOEPLITZ[indices,]$Names_of_Y),each=length(table_red$temperature)))
-# 
-# bp <- ggplot(table_boxplot, aes(x=temperature, y=Reponse)) + 
-#   geom_boxplot()+theme_bw()
-# bp+facet_wrap(~nom,ncol=3)
-
-### Autre façon de faire un boxplot
-# boxplot(Y[,which(colnames(Y)=="Maleate")]~temperature,main="proteine Maleate")
 ```
 
-```{r,fig.width=10,fig.height=10,echo=FALSE}
+```{r,fig.width=10,fig.height=10,echo=FALSE, echo=F}
 liste_proteines_selected=unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)
+
 # length(liste_proteines_selected)
 # 
 # residus_red=residus[,colnames(residus)%in%liste_proteines_selected]
@@ -156,25 +184,67 @@ liste_proteines_selected=unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)
 
 ```
 
-# Exportation des Protéines sélectionnées par GLM Lasso
-```{r}
+## Protéines retenues au seuil `r seuil_proteines`
+
+### Table des protéines retenues
+```{r, echo=F}
+knitr::kable(liste_proteines_selected, col.names = "Proteines")
+```
+
+## Boxplots de Tukey (avec cld)
+
+Les graphiques suivants présentent les boxplots pour les protéines sélectionnées par la méthode du lasso
+
+```{r, results='asis', echo=F}
+for (i in 1:length(liste_proteines_selected)) {
+  varname <- liste_proteines_selected[i]
+  cat(paste0("\n\n##\n\n### ", varname), sep = "\n")
+  res.anova <- aov(proteo[, varname] ~ temperature, data = proteo)
+  tuk <- glht(res.anova, linfct = mcp(temperature = "Tukey"))
+  CLD <- cld(tuk, level = 0.05)
+  CLD <-
+    data.frame(
+      temperature = names(CLD$mcletters$Letters),
+      lettres = CLD$mcletters$Letters)
+  
+  g <- ggplot(proteo, aes(fill = temperature)) +
+    geom_boxplot(aes_string(x = proteo$temperature, y = proteo[, varname])) +
+    labs(title = paste(varname, sep = ""), x = "temperature conditions",y = " protein abundance") +
+    theme_grey() +
+    theme(plot.title = element_text(colour = "red",size = 20,hjust = 0.5)) +
+    theme(axis.title.x = element_text(colour = "black", size = 15)) +
+    theme(axis.title.y = element_text(colour = "black", size = 15)) +    
+    theme(axis.text.x = element_text(angle = 0,colour = "black", size = 10)) +
+    theme(axis.text.y = element_text(colour = "black", size = 10)) +
+    geom_text(data = CLD, aes(x = temperature, label = lettres, y = max(proteo[, varname]) + max(proteo[, varname]) * 0.05), colour = "black", size = 6) + scale_fill_manual(breaks = c("FROID", "STD", "CHAUD"), values = c("lightblue", "green", "orange")
+    )
+  
+  print(g)
+}
+```
+
+## Exportation des Protéines sélectionnés par GLM Lasso
+```{r ,echo=F}
 table_selection <- liste_proteines_selected
 
 # export
+derniere_selection_lasso = sprintf("proteines_selection_lasso_%s.csv", seuil_proteines)
 
-write.table(
-  table_selection,
-  file = "protein_selection_lasso.csv",
-  append = F,
-  sep = ";",
-  dec = ".",
-  row.names = T,
-  col.names = NA,
-  fileEncoding = "UTF-8"
-)
-
-
+if (!file.exists(derniere_selection_lasso)) {
+  resultat_exporation = sprintf("Le fichier **%s** n'existe pas, écriture.", derniere_selection_lasso)
+  write.table(
+    table_selection,
+    file = derniere_selection_lasso,
+    append = F,
+    sep = ";",
+    dec = ".",
+    row.names = T,
+    col.names = NA,
+    fileEncoding = "UTF-8"
+  )
+}else{
+  resultat_exportation = sprintf("Le fichier **%s** existe déjà.", derniere_selection_lasso)
+}
 ```
 
-
-
+`r resultat_exportation`

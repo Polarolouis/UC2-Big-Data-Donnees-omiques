@@ -1,9 +1,10 @@
-```{r, echo=F}
-library(glmnet)
+```{r, echo=F, warning=F}
 library(Matrix)
 library(ggplot2)
 library(MultiVarSel)
 library(reshape2)
+library(glmnet)
+library(multcomp)
 ```
 
 ```{r, echo=F}
@@ -18,27 +19,21 @@ if (!exists("seuil_metabolites")){
 metabo <- read.table("metabolomeAth.csv", header = T, sep = ";", dec = ",")
 
 # Renommage de la première colonne
-metabo = metabo[,-1]
-temperature = rep(c("FROID", "STD", "CHAUD"), each = 3)
+# metabo = metabo[,-1]
+metabo[1:3,1] <- "FROID"
+metabo[4:6,1] <- "STD"
+metabo[7:9,1] <- "CHAUD"
+
+temperature = factor(metabo$name, levels=c("FROID","STD","CHAUD"), ordered = T)
+metabo <- metabo[,-1]
 metabo = data.frame(temperature, metabo)
 ```
 
 ## Infos sur les données de métabolisme
-```{r, echo=F}
-print("Nombre de colonne dont la moyenne est nulle :")
-which(colMeans(metabo[,2:dim(metabo)[2]])==0)
 
-print("Nombre de colonne où la variable est constante :")
-which(apply(metabo[,2:dim(metabo)[2]],2,sd)==0)
-
-print("Nombre de NAs dans le dataframe :")
-which(is.na(metabo))
-```
-## Infos sur les données de métabolisme
-
-- Nombre de colonne dont la moyenne est nulle : 0
-- Nombre de colonne où la variable est constante : 0
-- Nombre de NAs dans le dataframe : 0
+- Nombre de colonne dont la moyenne est nulle : `r length((which(colMeans(metabo[,2:dim(metabo)[2]])==0)))`
+- Nombre de colonne où la variable est constante : `r length(which(apply(metabo[,2:dim(metabo)[2]],2,sd)==0))`
+- Nombre de NAs dans le dataframe : `r length(which(is.na(metabo)))`
 
 
 ## Matrices Y et X
@@ -47,14 +42,16 @@ which(is.na(metabo))
 Y <- as.matrix(metabo[, -1])
 X <- model.matrix(lm(Y ~ temperature + 0,data=metabo))
 p <- ncol(X)
-print("Lignes de X")
-n=nrow(X)
-print(n)
 
-print("Colonnes de Y")
+n=nrow(X)
 q=dim(Y)[2]
-print(q)
+
 ```
+Lignes | Valeur | Colonnes | Valeur
+--- | --- | --- | --- 
+ X | `r n` | X| `r p`
+ Y | `r n` | Y| `r q`
+
 
 ## Test de Blancheur
 ```{r, echo=F}
@@ -68,15 +65,33 @@ residus=lm(as.matrix(Y)~X-1)$residuals
 ## Whitening test without using any whitening method
 pvalue=whitening_test(residus)
 ```
-P-valeur du test de blancheur : `r pvalue`
+
+### Test réalisé :
+
+$H_0 : \{E \text{ suit un bruit blanc et donc } \Sigma = Id  \}$ 
+
+contre 
+
+$H_1 : \{E \text{ ne suit pas un bruit blanc et } \Sigma \neq Id  \}$
+
+P-valeur du test de blancheur : `r pvalue`. Donc on rejette $H_0$ et $E$ ne suit pas un bruit blanc, les colonnes ne sont pas indépendantes et $\Sigma \neq Id$. 
 
 ## Structure du bruit des résidus
 ```{r, echo=F}
 ## Testing the two dependence structures (parametric : AR1 and Nonparametric) : Toeplitz case
-whitening_choice(residus, typeDeps = c("AR1","nonparam", "ARMA"), pAR = 2, qMA = 1)
+choix_blanchiement = whitening_choice(residus, typeDeps = c("AR1","nonparam", "ARMA"), pAR = 2, qMA = 1)
+choix_blanchiement
 ```
 
-On voit donc que lorsque l'on applique la structure non paramétrique la valeur p de $0.741$ nous indique que parmi les fonctions testées c'est la structure non paramétrique qui permet de blanchir la matrice.
+### Test réalisé pour chaque méthode :
+
+$H_0 : \{E\Sigma^{-1/2}_{méthode} \text{ suit un bruit blanc et donc } \Sigma_{corrigé} = Id  \}$
+
+contre 
+
+$H_1 : \{E\Sigma^{-1/2}_{méthode} \text{ ne suit pas un bruit blanc et } \Sigma_{corrigé} \neq Id  \}$
+
+On voit donc que lorsque l'on applique la structure non paramétrique la P-valeur de `r choix_blanchiement$Pvalue[2]` nous indique que parmi les fonctions testées c'est la structure non paramétrique qui permet de blanchir la matrice.
 
 ```{r, echo=F}
 ## => We will use the nonparametric modeling.
@@ -102,10 +117,15 @@ colnames(Freqs_TOEPLITZ) <- c('Names_of_Y', 'Names_of_X', 'frequency')
 base::plot(sort(Freqs_TOEPLITZ$frequency, decreasing = T), type = 's')
 ```
 
-### Les 50 métabolites les plus fréquents
+## Les 50 métabolites les plus fréquents
+### Liste des fréquences
 `r sort(Freqs_TOEPLITZ$frequency, decreasing = T)[1:50]`
 
-### Réponses des métabolites dépassant le seuil `r seuil_metabolites` 
+## Les 50 métabolites les plus fréquents
+### Liste des noms de métabolites
+`r Freqs_TOEPLITZ$Names_of_Y[which(Freqs_TOEPLITZ$frequency %in% sort(Freqs_TOEPLITZ$frequency, decreasing = T)[1:50])]`
+
+## Réponses des métabolites dépassant le seuil `r seuil_metabolites` 
 ```{r, echo=F}
 Freqs_TOEPLITZ$Names_of_X = gsub(pattern = 'temperature',
                                  replacement = '',
@@ -132,7 +152,7 @@ gr
 
 ```
 
-### Boxplots des réponses des métabolites dépassant le seuil `r seuil_metabolites` 
+## Boxplots des réponses des métabolites dépassant le seuil `r seuil_metabolites` 
 ```{r,fig.width=10,fig.height=7, echo=F}
 #### Boxplots
 table_red=as.data.frame(Y[,colnames(Y)%in%unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)])
@@ -158,6 +178,45 @@ liste_metabolites_selected=unique(Freqs_TOEPLITZ[indices,]$Names_of_Y)
 
 ```
 
+## Métabolites retenus au seuil `r seuil_metabolites`
+
+### Table des métabolites retenues
+```{r, echo=F}
+knitr::kable(liste_metabolites_selected, col.names = "Metabolites")
+```
+
+## Boxplots de Tukey (avec cld)
+
+Les graphiques suivants présentent les boxplots pour les métabolites sélectionnés par la méthode du lasso
+
+```{r, results='asis', echo=F}
+for (i in 1:length(liste_metabolites_selected)) {
+  varname <- liste_metabolites_selected[i]
+  cat(paste0("\n\n##\n\n### ", varname), sep = "\n")
+  res.anova <- aov(metabo[, varname] ~ temperature, data = metabo)
+  tuk <- glht(res.anova, linfct = mcp(temperature = "Tukey"))
+  CLD <- cld(tuk, level = 0.05)
+  CLD <-
+    data.frame(
+      temperature = names(CLD$mcletters$Letters),
+      lettres = CLD$mcletters$Letters)
+  
+  g <- ggplot(metabo, aes(fill = temperature)) +
+    geom_boxplot(aes_string(x = metabo$temperature, y = metabo[, varname])) +
+    labs(title = paste(varname, sep = ""), x = "temperature conditions",y = " metabolite abundance") +
+    theme_grey() +
+    theme(plot.title = element_text(colour = "red",size = 20,hjust = 0.5)) +
+    theme(axis.title.x = element_text(colour = "black", size = 15)) +
+    theme(axis.title.y = element_text(colour = "black", size = 15)) +    
+    theme(axis.text.x = element_text(angle = 0,colour = "black", size = 10)) +
+    theme(axis.text.y = element_text(colour = "black", size = 10)) +
+    geom_text(data = CLD, aes(x = temperature, label = lettres, y = max(metabo[, varname]) + max(metabo[, varname]) * 0.05), colour = "black", size = 6) + scale_fill_manual(breaks = c("FROID", "STD", "CHAUD"), values = c("lightblue", "green", "orange")
+    )
+  
+  print(g)
+}
+```
+
 ## Exportation des Métabolites sélectionnés par GLM Lasso
 ```{r ,echo=F}
 table_selection <- liste_metabolites_selected
@@ -165,16 +224,22 @@ table_selection <- liste_metabolites_selected
 # export
 derniere_selection_lasso = sprintf("metabolites_selection_lasso_%s.csv", seuil_metabolites)
 
-write.table(
-  table_selection,
-  file = derniere_selection_lasso,
-  append = F,
-  sep = ";",
-  dec = ".",
-  row.names = T,
-  col.names = NA,
-  fileEncoding = "UTF-8"
-)
+if (!file.exists(derniere_selection_lasso)) {
+  resultat_exporation = sprintf("Le fichier **%s** n'existe pas, écriture.", derniere_selection_lasso)
+  write.table(
+    table_selection,
+    file = derniere_selection_lasso,
+    append = F,
+    sep = ";",
+    dec = ".",
+    row.names = T,
+    col.names = NA,
+    fileEncoding = "UTF-8"
+  )
+}else{
+  resultat_exportation = sprintf("Le fichier **%s** existe déjà.", derniere_selection_lasso)
+}
 ```
-Fichier **`r derniere_selection_lasso`** exporté.
+
+`r resultat_exportation`
 

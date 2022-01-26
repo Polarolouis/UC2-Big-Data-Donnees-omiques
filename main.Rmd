@@ -1,10 +1,11 @@
 ---
-title: "Oral UC2 Big Data"
-author: Joseph ALLYNDREE, Thomas CLERC, Louis LACOSTE, Tom LORTHIOS
+title: 'Oral UC2 Big Data et données "-omiques"'
+author: ALLYNDREE J., CLERC T., LACOSTE L., LORTHIOS T.
 output:
   beamer_presentation:
-    theme: "Berkeley"
-    slide_level: 3
+    theme: "Frankfurt"
+    toc: true
+    slide_level: 2
     number_sections: true
   html_document:
     toc: true
@@ -13,11 +14,38 @@ output:
 
 ```{r setup, include=FALSE, fig.show="hide"}
 knitr::opts_chunk$set(echo = TRUE, warning = F,dev = 'pdf', comment="", cache=FALSE, results = 'markup', fig.width = 10, fig.height = 6, tidy.opts=list(width.cutoff=80), tidy=TRUE)
-rm(list = ls())
-seuil_metabolites = 0.7
 ```
 
-# Sélection des métabolites par la méthode Lasso
+```{r bibliothèques, echo=F, warning=F}
+library(Matrix)
+library(ggplot2)
+library(MultiVarSel)
+library(reshape2)
+library(glmnet)
+library(multcomp)
+```
+
+
+```{r definition_constantes, include=F}
+rm(list = ls())
+seuil_metabolites = 0.94
+seuil_proteines = 0.95
+```
+
+# Méthode de sélection
+
+La méthode utilisée pour sélectionner les métabolites et protéines repose sur le package `MultiVarSel` et utilise la *méthode du Lasso.*
+
+# Sélection des métabolites
 Seuil défini à `r seuil_metabolites`
 ```{r, child="metabolome.Rmd"}
 ```
+
+# Sélection des protéines
+Seuil défini à `r seuil_proteines`
+```{r, child="proteome.Rmd"}
+```
+
+# Métabolites KEGG
+
+# Protéines ThaleMine, UniProt
